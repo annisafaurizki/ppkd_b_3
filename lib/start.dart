@@ -28,15 +28,27 @@ class StartWidget extends StatelessWidget {
           Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [ 
                 Icon(Icons.location_on, color: Colors.blue ), Text(":", style: TextStyle(color: Colors.blueAccent ),), 
-                SizedBox(width: 110), Text("Jakarta", style: 
-                TextStyle( fontSize: 15, color: Colors.amber),),],
+                SizedBox(width: 110), 
+                Text("Jakarta", style: TextStyle( fontSize: 15, color: Colors.amber),),],
           ),
 
           Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Seorang pelajar yang sedang belajar Flutter", 
-                style:TextStyle(fontSize:15, color: Colors.orange ) ,)],
-          )
+                style:TextStyle(fontSize:15, color: Colors.orange ) ,),
+                
+                SizedBox(height: 20),
+                Container( 
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                color: Colors.amberAccent,
+                border: Border.all(color: Colors.black54),
+                borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text("Text ini dalam kotak")
+                )
+           ],
+          ) 
         ],
       ),
     );
