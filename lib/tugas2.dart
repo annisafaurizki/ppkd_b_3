@@ -127,7 +127,7 @@ class Tugas2 extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Text(
-                    deskripsi
+                    deskripsi, textAlign: TextAlign.justify,
                   ),
                 ),
               ),
