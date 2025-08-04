@@ -11,25 +11,29 @@ class Tugas2 extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 230, 175, 193),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(1),
+      
+      body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Container(
               margin: EdgeInsets.all(16),
-              height: 50,
+              
               width: double.infinity,
               
 
-              child: Row(
+              child: Column(
                 children: [
-                  Icon(Icons.account_circle_rounded, size: 60,),
+                  CircleAvatar(
+                    radius: 40,
+                  ),
                   SizedBox(width: 8),
                   Text("Annisa Faurizki", style: TextStyle(fontSize: 40),),
                 ],
               ),
             ),
-
+          
             Container(
               margin: EdgeInsets.all(16),
               height: 50,
@@ -39,7 +43,7 @@ class Tugas2 extends StatelessWidget {
                 border: Border.all(color: Colors.black, width: 3),
                 borderRadius: BorderRadius.circular(15),
               ),
-
+            
               child: Row(
                 children: [
                   SizedBox(width: 13,),
@@ -49,7 +53,7 @@ class Tugas2 extends StatelessWidget {
                 ],
               ),
             ),
-
+      
             Container(
                     margin: EdgeInsets.all(16),
                     height: 50,
@@ -69,7 +73,7 @@ class Tugas2 extends StatelessWidget {
                       ],
                     ),
                   ),
-
+                SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
@@ -134,6 +138,7 @@ class Tugas2 extends StatelessWidget {
             )
           ],
         ),
+      ),
       ),
     );
   }
