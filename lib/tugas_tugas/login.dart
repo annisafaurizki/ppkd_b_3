@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ppkd_b_3/tugas_tugas/tugas7.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -157,7 +158,14 @@ class _LoginState extends State<Login> {
                             ),
                             actions: [
                               TextButton(
-                                onPressed: () => Navigator.of(context).pop(),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Tugas7(),
+                                    ),
+                                  );
+                                },
                                 child: Text("OK"),
                               ),
                             ],
