@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 import 'package:ppkd_b_3/tugas_tugas/checkbox.dart';
 import 'package:ppkd_b_3/tugas_tugas/dropdown.dart';
 import 'package:ppkd_b_3/tugas_tugas/format_tanggal.dart';
@@ -86,7 +85,7 @@ class _FirstPageState extends State<FirstPage> {
           ],
         ),
       ),
-      bottomNavigationBar: Bottomnav(),
+      // bottomNavigationBar: MainScreen(),
       body: Column(
         children: [
           Container(

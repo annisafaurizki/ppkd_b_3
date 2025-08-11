@@ -2,38 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_b_3/tugas_tugas/aboutpage.dart';
 import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
-class Bottomnav extends StatefulWidget {
-  const Bottomnav({super.key});
-
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+  static const id = "/main";
   @override
-  State<Bottomnav> createState() => _BottomnavState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _BottomnavState extends State<Bottomnav> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  static const List<Widget> _wigdetOptions = <Widget>[FirstPage(), Tentang()];
+  static const List<Widget> _widgetOptions = <Widget>[FirstPage(), Tentang()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: _wigdetOptions[_selectedIndex]),
+      body: Center(child: _widgetOptions[_selectedIndex]),
+
+      // endDrawer: Drawer(child: Column(children: [])),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.details), label: "Tentang"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            // activeIcon: Icon(Icons.abc_outlined),
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.details), label: 'Tentang'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: const Color.fromARGB(255, 74, 90, 231),
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
         onTap: (value) {
           print(value);
-          print("Nilai SelectedIndex Before : $_selectedIndex");
+          print("Nilai SelecetedIndex Before : $_selectedIndex");
 
           print("Nilai BotNav : $value");
           setState(() {
             _selectedIndex = value;
           });
-          print("Nilai SelectedIndex After: $_selectedIndex");
+          print("Nilai SelecetedIndex After: $_selectedIndex");
         },
+        // onTap: _onItemTapped,
       ),
     );
   }
