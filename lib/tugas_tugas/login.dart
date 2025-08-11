@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ppkd_b_3/tugas_tugas/tugas7.dart';
+import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -162,7 +162,7 @@ class _LoginState extends State<Login> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const Tugas7(),
+                                      builder: (context) => const Bottomnav(),
                                     ),
                                   );
                                 },

@@ -1,33 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
-class Syarat extends StatefulWidget {
-  const Syarat({super.key});
+class MySyarat extends StatefulWidget {
+  const MySyarat({super.key});
 
   @override
-  State<Checkbox> createState() => _SyaratState();
+  State<MySyarat> createState() => _MySyaratState();
 }
 
-class _SyaratState extends State<Checkbox> {
+class _MySyaratState extends State<MySyarat> {
   bool isCheck = true;
+  final String syarat =
+      "Dengan menggunakan layanan ini, Anda setuju untuk mematuhi semua peraturan yang berlaku. Data yang Anda berikan akan digunakan sesuai kebijakan privasi. Kami berhak mengubah ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya.";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Checkbox(
-            value: isCheck,
-            onChanged: (value) {
-              setState(() {
-                isCheck = value!;
-              });
-            },
-          ),
-          Text(
-            isCheck
-                ? "Lanjutkan pendaftaran diperbolehkan"
-                : "Anda belum bisa melanjutkan",
-          ),
-        ],
+      // appBar: AppBar(
+      //   title: Text("Syarat dan Ketentuan"),
+      //   centerTitle: true,
+      //   leading: Icon(Icons.arrow_back_ios),
+      // ),
+      appBar: AppBar(title: Text("Syarat & Ketentuan")),
+      drawer: FirstPage(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 174, 221, 248),
+                    border: Border.all(color: Colors.black54),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(syarat, textAlign: TextAlign.justify),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: isCheck,
+                      onChanged: (value) {
+                        setState(() {
+                          isCheck = value!;
+                        });
+                      },
+                    ),
+                    Text(
+                      isCheck == true
+                          ? "Lanjutkan pendaftaran diperbolehkan"
+                          : "Anda belum bisa melanjutkan",
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text("Lanjutkan"),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
