@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
 class Dropdown extends StatefulWidget {
   const Dropdown({super.key});
@@ -13,11 +12,13 @@ class _DropdownState extends State<Dropdown> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Dropdown")),
-      drawer: FirstPage(),
       body: Column(
         children: [
-          Text("dropdownbutton"),
+          SizedBox(
+            height: 100,
+            width: double.infinity,
+            child: Text("dropdownbutton"),
+          ),
           DropdownButton(
             value: dropdownSelect,
             hint: Text("Pilih Produk"),

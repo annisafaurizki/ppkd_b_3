@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
 class ModeGelap extends StatefulWidget {
   const ModeGelap({super.key});
@@ -15,21 +14,15 @@ class _ModeGelapState extends State<ModeGelap> {
     return Scaffold(
       backgroundColor: gelap
           ? const Color.fromARGB(255, 250, 246, 246)
-          : const Color.fromARGB(255, 31, 30, 30),
-      appBar: AppBar(
-        title: Text(
-          "Mode Gelap",
-          style: TextStyle(
-            color: gelap ? const Color.fromARGB(255, 17, 17, 17) : Colors.black,
-          ),
-        ),
-      ),
-      drawer: FirstPage(),
+          : const Color.fromARGB(255, 141, 140, 140),
+
+      // drawer: FirstPage(),
       body: Container(
         child: Column(
           children: [
+            SizedBox(height: 20),
             Text(
-              "Mode Gelap",
+              "Hidupkan Mode Gelap",
               style: TextStyle(
                 color: gelap
                     ? const Color.fromARGB(255, 12, 12, 12)

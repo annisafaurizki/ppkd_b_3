@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
 class MySyarat extends StatefulWidget {
   const MySyarat({super.key});
@@ -22,7 +21,7 @@ class _MySyaratState extends State<MySyarat> {
       //   leading: Icon(Icons.arrow_back_ios),
       // ),
       appBar: AppBar(title: Text("Syarat & Ketentuan")),
-      drawer: FirstPage(),
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

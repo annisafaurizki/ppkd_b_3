@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
 class Waktu extends StatefulWidget {
   const Waktu({super.key});
@@ -14,7 +13,6 @@ class _WaktuState extends State<Waktu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Pilih Waktu")),
-      drawer: FirstPage(),
       body: Column(
         children: [
           ElevatedButton(

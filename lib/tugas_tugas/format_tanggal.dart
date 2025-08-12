@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ppkd_b_3/tugas_tugas/halaman_utama.dart';
 
 class Tanggal extends StatefulWidget {
   const Tanggal({super.key});
@@ -14,13 +13,14 @@ class _TanggalState extends State<Tanggal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Pilih Tanggal")),
-      drawer: FirstPage(),
+      backgroundColor: Color(0xFFF0E4D3),
+
       body: Container(
         height: 110,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 199, 222, 241),
+          color: Color(0xFFDCC5B2),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20)),
         ),
         child: Column(
           children: [

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/extension/navigation.dart';
+import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 import 'package:ppkd_b_3/tugas_tugas/checkbox.dart';
 import 'package:ppkd_b_3/tugas_tugas/dropdown.dart';
 import 'package:ppkd_b_3/tugas_tugas/format_tanggal.dart';
@@ -13,15 +15,40 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  int _selectedIndexDrawer = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    MySyarat(),
+    ModeGelap(),
+    Dropdown(),
+    Tanggal(),
+    Waktu(),
+    MainScreen(),
+  ];
+
+  static const List<String> _title = [
+    "Syarat dan Ketentuan",
+    "Mode Gelap",
+    "Dropdown",
+    "Format Tanggal",
+    "Format Waktu",
+  ];
+  void onItemTap(int index) {
+    setState(() {
+      _selectedIndexDrawer = index;
+    });
+    context.pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFDCCFC0),
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Halaman Utama"),
+        title: Text(_title[_selectedIndexDrawer]),
         backgroundColor: Color(0xFFF6D6D6),
       ),
+      body: Center(child: _widgetOptions[_selectedIndexDrawer]),
       drawer: Drawer(
         child: ListView(
           children: [
@@ -32,76 +59,76 @@ class _FirstPageState extends State<FirstPage> {
               child: Text("Hi! Annisa Faurizki"),
             ),
             SizedBox(),
+            // ListTile(
+            //   title: Text("Halaman Utama"),
+            //   leading: Icon(Icons.dashboard),
+            //   onTap: () {
+            //     // Navigator.push(
+            //     //   context,
+            //     //   MaterialPageRoute(builder: (context) => const MySyarat()),
+            //     // );.
+            //     onItemTap(0);
+            //   },
+            // ),
             ListTile(
               title: Text("Syarat dan Ketentuan"),
               leading: Icon(Icons.edit_attributes),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MySyarat()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const MySyarat()),
+                // );.
+                onItemTap(0);
               },
             ),
             ListTile(
               title: Text("Mode Gelap"),
               leading: Icon(Icons.dark_mode_outlined),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ModeGelap()),
-                );
+                onItemTap(1);
               },
             ),
             ListTile(
               title: Text("Dropdown"),
               leading: Icon(Icons.arrow_drop_down_circle),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Dropdown()),
-                );
+                onItemTap(2);
               },
             ),
             ListTile(
               title: Text("Format Tanggal"),
               leading: Icon(Icons.calendar_month),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Tanggal()),
-                );
+                onItemTap(3);
               },
             ),
             ListTile(
               title: Text("Format Waktu"),
               leading: Icon(Icons.timelapse),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Waktu()),
-                );
+                onItemTap(4);
               },
             ),
           ],
         ),
       ),
-      // bottomNavigationBar: MainScreen(),
-      body: Column(
-        children: [
-          Container(
-            height: 200,
-            width: double.maxFinite,
-            decoration: BoxDecoration(color: Color(0xFFD0E8C5)),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                "Halo! Selamat Datang.",
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-          ),
-        ],
-      ),
+
+      // body: Column(
+      //   children: [
+      //     Container(
+      //       height: 200,
+      //       width: double.maxFinite,
+      //       decoration: BoxDecoration(color: Color(0xFFD0E8C5)),
+      //       child: Padding(
+      //         padding: const EdgeInsets.all(20.0),
+      //         child: Text(
+      //           "Halo! Selamat Datang.",
+      //           style: TextStyle(fontSize: 20),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
