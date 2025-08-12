@@ -4,6 +4,9 @@ import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 import 'package:ppkd_b_3/tugas_tugas/checkbox.dart';
 import 'package:ppkd_b_3/tugas_tugas/dropdown.dart';
 import 'package:ppkd_b_3/tugas_tugas/format_tanggal.dart';
+import 'package:ppkd_b_3/tugas_tugas/head_model.dart';
+import 'package:ppkd_b_3/tugas_tugas/listmap.dart';
+import 'package:ppkd_b_3/tugas_tugas/listview.dart';
 import 'package:ppkd_b_3/tugas_tugas/mode_gelap.dart';
 import 'package:ppkd_b_3/tugas_tugas/timepicker.dart';
 
@@ -22,6 +25,9 @@ class _FirstPageState extends State<FirstPage> {
     Dropdown(),
     Tanggal(),
     Waktu(),
+    ListV(),
+    ListM(),
+    Model(),
     MainScreen(),
   ];
 
@@ -31,6 +37,9 @@ class _FirstPageState extends State<FirstPage> {
     "Dropdown",
     "Format Tanggal",
     "Format Waktu",
+    "ListView",
+    "ListMap",
+    "Model Produk",
   ];
   void onItemTap(int index) {
     setState(() {
@@ -107,6 +116,27 @@ class _FirstPageState extends State<FirstPage> {
               leading: Icon(Icons.timelapse),
               onTap: () {
                 onItemTap(4);
+              },
+            ),
+            ListTile(
+              title: Text("ListView"),
+              leading: Icon(Icons.view_agenda),
+              onTap: () {
+                onItemTap(5);
+              },
+            ),
+            ListTile(
+              title: Text("ListMap"),
+              leading: Icon(Icons.map),
+              onTap: () {
+                onItemTap(6);
+              },
+            ),
+            ListTile(
+              title: Text("Model Produk"),
+              leading: Icon(Icons.connect_without_contact),
+              onTap: () {
+                onItemTap(7);
               },
             ),
           ],
