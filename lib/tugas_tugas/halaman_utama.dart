@@ -9,6 +9,7 @@ import 'package:ppkd_b_3/tugas_tugas/listmap.dart';
 import 'package:ppkd_b_3/tugas_tugas/listview.dart';
 import 'package:ppkd_b_3/tugas_tugas/mode_gelap.dart';
 import 'package:ppkd_b_3/tugas_tugas/timepicker.dart';
+import 'package:ppkd_b_3/tugas_tugas/tugas_10/halaman_1.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -20,6 +21,7 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   int _selectedIndexDrawer = 0;
   static const List<Widget> _widgetOptions = <Widget>[
+    Pertama(),
     MySyarat(),
     ModeGelap(),
     Dropdown(),
@@ -32,6 +34,7 @@ class _FirstPageState extends State<FirstPage> {
   ];
 
   static const List<String> _title = [
+    "Form Daftar",
     "Syarat dan Ketentuan",
     "Mode Gelap",
     "Dropdown",
@@ -91,52 +94,59 @@ class _FirstPageState extends State<FirstPage> {
               },
             ),
             ListTile(
+              title: Text("Syarat dan Ketentuan"),
+              leading: Icon(Icons.edit_attributes),
+              onTap: () {
+                onItemTap(1);
+              },
+            ),
+            ListTile(
               title: Text("Mode Gelap"),
               leading: Icon(Icons.dark_mode_outlined),
               onTap: () {
-                onItemTap(1);
+                onItemTap(2);
               },
             ),
             ListTile(
               title: Text("Dropdown"),
               leading: Icon(Icons.arrow_drop_down_circle),
               onTap: () {
-                onItemTap(2);
+                onItemTap(3);
               },
             ),
             ListTile(
               title: Text("Format Tanggal"),
               leading: Icon(Icons.calendar_month),
               onTap: () {
-                onItemTap(3);
+                onItemTap(4);
               },
             ),
             ListTile(
               title: Text("Format Waktu"),
               leading: Icon(Icons.timelapse),
               onTap: () {
-                onItemTap(4);
+                onItemTap(5);
               },
             ),
             ListTile(
               title: Text("ListView"),
               leading: Icon(Icons.view_agenda),
               onTap: () {
-                onItemTap(5);
+                onItemTap(6);
               },
             ),
             ListTile(
               title: Text("ListMap"),
-              leading: Icon(Icons.map),
+              leading: Icon(Icons.list),
               onTap: () {
-                onItemTap(6);
+                onItemTap(7);
               },
             ),
             ListTile(
               title: Text("Model Produk"),
               leading: Icon(Icons.connect_without_contact),
               onTap: () {
-                onItemTap(7);
+                onItemTap(8);
               },
             ),
           ],

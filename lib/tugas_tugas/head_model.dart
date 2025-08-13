@@ -69,15 +69,25 @@ class _ModelState extends State<Model> {
               itemCount: produkElektronik.length,
               itemBuilder: (BuildContext context, int index) {
                 final dataProdukElektronik = produkElektronik[index];
-                return ListTile(
-                  title: Text(dataProdukElektronik.nama),
-                  subtitle: Text(dataProdukElektronik.price.toString()),
-                  trailing: CircleAvatar(
-                    backgroundColor: dataProdukElektronik.warna,
-                  ),
-                  leading: CircleAvatar(
-                    backgroundColor: const Color.fromARGB(255, 238, 228, 247),
-                    child: Text("${index + 1}"),
+                return Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Card(
+                    child: ListTile(
+                      title: Text(dataProdukElektronik.nama),
+                      subtitle: Text(dataProdukElektronik.price.toString()),
+                      trailing: CircleAvatar(
+                        backgroundColor: dataProdukElektronik.warna,
+                      ),
+                      leading: CircleAvatar(
+                        backgroundColor: const Color.fromARGB(
+                          255,
+                          238,
+                          228,
+                          247,
+                        ),
+                        child: Text("${index + 1}"),
+                      ),
+                    ),
                   ),
                 );
               },
