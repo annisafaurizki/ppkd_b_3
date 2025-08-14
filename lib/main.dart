@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:ppkd_b_3/tugas_tugas/tugas_10/halaman_1.dart';
+import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 
 void main() {
   initializeDateFormatting("id_ID");
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Gilroy",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Pertama(),
+      home: MainScreen(),
     );
   }
 }

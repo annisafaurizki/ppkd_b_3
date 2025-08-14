@@ -10,6 +10,7 @@ import 'package:ppkd_b_3/tugas_tugas/listview.dart';
 import 'package:ppkd_b_3/tugas_tugas/mode_gelap.dart';
 import 'package:ppkd_b_3/tugas_tugas/timepicker.dart';
 import 'package:ppkd_b_3/tugas_tugas/tugas_10/halaman_1.dart';
+import 'package:ppkd_b_3/tugas_tugas/tugas_11/user_screen.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -30,6 +31,7 @@ class _FirstPageState extends State<FirstPage> {
     ListV(),
     ListM(),
     Model(),
+    WishlistBelanja(),
     MainScreen(),
   ];
 
@@ -43,6 +45,7 @@ class _FirstPageState extends State<FirstPage> {
     "ListView",
     "ListMap",
     "Model Produk",
+    "WishList",
   ];
   void onItemTap(int index) {
     setState(() {
@@ -83,8 +86,8 @@ class _FirstPageState extends State<FirstPage> {
             //   },
             // ),
             ListTile(
-              title: Text("Syarat dan Ketentuan"),
-              leading: Icon(Icons.edit_attributes),
+              title: Text("Pendaftaran"),
+              leading: Icon(Icons.account_box),
               onTap: () {
                 // Navigator.push(
                 //   context,
@@ -147,6 +150,13 @@ class _FirstPageState extends State<FirstPage> {
               leading: Icon(Icons.connect_without_contact),
               onTap: () {
                 onItemTap(8);
+              },
+            ),
+            ListTile(
+              title: Text("WishList"),
+              leading: Icon(Icons.favorite),
+              onTap: () {
+                onItemTap(9);
               },
             ),
           ],
