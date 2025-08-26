@@ -76,10 +76,11 @@ class _WishlistBelanjaState extends State<WishlistBelanja> {
                   });
                   getBelanja();
                   setState(() {});
-
+                  
                   namaController.clear();
                   wishlistController.clear();
                   hargaController.clear();
+
                 },
 
                 child: Text("Simpan Data"),
@@ -162,66 +163,7 @@ class _WishlistBelanjaState extends State<WishlistBelanja> {
                           icon: Icon(Icons.delete),
                         ),
 
-                        // IconButton(
-                        //   onPressed: () {
-                        //     showDialog(
-                        //       context: context,
-                        //       builder: (context) => AlertDialog(
-                        //         title: Text("edit data"),
-                        //         content: Column(
-                        //           mainAxisSize: MainAxisSize.min,
-                        //           children: [
-                        //             TextFormConst(
-                        //               controller: namaController
-                        //                 ..text = dataBelanja.nama,
-                        //               hintText: 'nama barang',
-                        //             ),
-                        //             SizedBox(height: 12),
-
-                        //             TextFormConst(
-                        //               controller: wishlistController
-                        //                 ..text = dataUserLogin.wishlist,
-                        //               hintText: 'Kategori',
-                        //             ),
-                        //             SizedBox(height: 12),
-
-                        //             TextFormConst(
-                        //               controller: hargaController
-                        //                 ..text = dataUserLogin.harga as String,
-                        //               hintText: 'Harga',
-                        //             ),
-                        //           ],
-                        //         ),
-                        //         actions: [
-                        //           ElevatedButton(
-                        //             onPressed: () {
-                        //               final dataBelanjaan = Belanjaan(
-                        //                 id: dataUserLogin.id,
-                        //                 nama: namaController.text.trim(),
-                        //                 wishlist: wishlistController.text,
-                        //                 harga: int.parse(hargaco)
-
-                        //                 );
-                        //             DbHelper.updateBelanjaan(Belanjaan as Belanjaan);
-                        //             getBelanja();
-                        //             Navigator.pop(context);
-                        //             },
-
-                        //             child:Text('simpan'),
-                        //           ),
-                        //           ElevatedButton(onPressed: () => Navigator.pop(context),
-                        //           child: Text('Batal'))
-                        //         ],
-                        //       ),
-                        //     );
-                        //   },
-                        //   icon: Icon(Icons.edit)
-                        // ),
-                        // IconButton(onPressed: (){
-                        //   DbHelper.deleteBelanjaan(dataUserLogin.id!);
-                        //   getUser();
-                        // },
-                        // icon: Icon(Icons.delete))
+                        
                       ],
                     ),
                   );
