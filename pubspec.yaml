@@ -69,6 +69,11 @@ flutter:
     - assets/images/animations/Failed.json
     - assets/images/animations/Loading Success Fail.json
     - assets/images/animations/Check Mark.json
+    - assets/images/pokemon.jpg
+    - assets/animations/Pokeball loading animation.json
+    - assets/images/cardpoke.jpg
+    - assets/images/cardframe.png
+    - assets/images/logotulisan.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
