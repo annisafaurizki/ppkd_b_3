@@ -30,7 +30,20 @@ class _DetailPokemonState extends State<DetailPokemon> {
     return Scaffold(
       body: data == null
           ? CircularProgressIndicator()
-          : Center(child: Text(data?.name ?? "")),
+          : Center(
+              child: Column(
+                children: [
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: Colors.blue),
+
+                    child: Image.network(data?.sprites.backDefault ?? ""),
+                  ),
+                  Text(data?.name ?? ""),
+                ],
+              ),
+            ),
     );
   }
 }
