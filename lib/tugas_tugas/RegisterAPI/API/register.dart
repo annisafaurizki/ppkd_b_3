@@ -16,6 +16,7 @@ class AuthenticationAPI {
     final response = await http.post(
       url,
       body: {"name": name, "email": email, "password": password},
+      headers: {"Accept": "application/json"},
     );
     if (response.statusCode == 200) {
       return RegisterUserModel.fromJson(json.decode(response.body));
@@ -29,10 +30,11 @@ class AuthenticationAPI {
     required String email,
     required String password,
   }) async {
-    final url = Uri.parse(Endpoint.register);
+    final url = Uri.parse(Endpoint.login);
     final response = await http.post(
       url,
       body: {"email": email, "password": password},
+      headers: {"Accept": "application/json"},
     );
     if (response.statusCode == 200) {
       return RegisterUserModel.fromJson(json.decode(response.body));
@@ -44,10 +46,12 @@ class AuthenticationAPI {
 
   static Future<GetUserModel> updateUser({required String name}) async {
     final url = Uri.parse(Endpoint.profile);
+    final token = await PreferenceHandler.getToken();
+
     final response = await http.post(
       url,
       body: {"name": name},
-      headers: {"Accept": "application/json"},
+      headers: {"Accept": "application/json", "Authorization": token},
     );
     if (response.statusCode == 200) {
       return GetUserModel.fromJson(json.decode(response.body));

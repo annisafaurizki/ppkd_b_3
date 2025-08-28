@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/extension/navigation.dart';
 import 'package:ppkd_b_3/share_preferences/share_preferences.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/API/register.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/Model/register_model.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/login_api_screen.dart';
 
 class PostApiScreen extends StatefulWidget {
   const PostApiScreen({super.key});
@@ -88,7 +90,7 @@ class _PostApiScreenState extends State<PostApiScreen> {
             children: [
               Text(
                 "Register API",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 50, fontFamily: 'Allura',),
               ),
               height(24),
               buildTitle("Email Address"),
@@ -141,7 +143,7 @@ class _PostApiScreenState extends State<PostApiScreen> {
                     registerUser();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: const Color.fromARGB(255, 245, 200, 245),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
@@ -153,32 +155,46 @@ class _PostApiScreenState extends State<PostApiScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 9, 9, 9),
                           ),
                         ),
                 ),
               ),
+              height(16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 8),
+                      height: 1,
+                      color: Colors.white,
+                    ),
+                  ),
+                   
+                ],
+              ),
 
+              height(16),
+             
+              height(16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "You have an account?",
-                    // style: TextStyle(fontSize: 12, color: AppColor.gray88),
+                    "Don't have an account?",
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w900),
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => MeetEmpatA()),
-                      // );
+                      context.push(LoginAPIScreen());
                     },
                     child: Text(
-                      "Sign Up",
+                      "Login",
                       style: TextStyle(
-                        // color: AppColor.blueButton,
+                        color: const Color.fromARGB(255, 91, 38, 71),
                         fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                       ),
                     ),
                   ),
@@ -197,7 +213,7 @@ class _PostApiScreenState extends State<PostApiScreen> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/wallpaper.jpg"),
+          image: AssetImage("assets/images/wallpaper2.jpg"),
           fit: BoxFit.cover,
         ),
       ),

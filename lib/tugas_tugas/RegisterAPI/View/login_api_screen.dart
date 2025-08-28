@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_b_3/extension/navigation.dart';
+import 'package:ppkd_b_3/share_preferences/share_preferences.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/API/register.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/Model/register_model.dart';
+
+// import 'package:ppkd_b_3/share_preferences/share_preferences.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/post_api_screen.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/user_screen.dart';
+// import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
+// import 'package:ppkd_b_3/tugas_tugas/tugas_11/db_helper.dart';
 
 class LoginAPIScreen extends StatefulWidget {
   const LoginAPIScreen({super.key});
@@ -12,33 +20,77 @@ class LoginAPIScreen extends StatefulWidget {
 class _LoginAPIScreenState extends State<LoginAPIScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  RegisterUserModel? user;
+  String? errorMessage;
+  bool isLoading = false;
   bool isVisibility = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
   }
 
-  login() async {
+void loginUser() async {
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-    if (email.isEmpty || password.isEmpty) {
+    if (email.isEmpty || password.isEmpty ) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Email dan Password tidak boleh kosong")),
+        const SnackBar(
+          content: Text("Email, Password, dan Nama tidak boleh kosong"),
+        ),
       );
-      // isLoading = false;
+      isLoading = false;
 
       return;
-      // }
-      // final userData = await DbHelper.loginUser(email, password);
-      // if (userData != null) {
-      //   PreferenceHandler.saveLogin();
-      //   context.pushReplacementNamed(MainScreen.id);
-      // } else {
-      //   ScaffoldMessenger.of(context).showSnackBar(
-      //     const SnackBar(content: Text("Email atau Password salah")),
-      //   );
     }
+    try {
+      final result = await AuthenticationAPI.loginUser(
+        email: email,
+        password: password,
+       
+      );
+      setState(() {
+        user = result;
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Berhasil Masuk!!")));
+      PreferenceHandler.saveToken(user?.data?.token.toString() ?? "");
+      print(user?.toJson());
+
+       Future.delayed(Duration(milliseconds: 1500), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UserScreen()), 
+        );
+      });
+
+      
+    } catch (e) {
+      print(e);
+      setState(() {
+        errorMessage = e.toString();
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(errorMessage.toString())));
+    } finally {
+      setState(() {});
+      isLoading = false;
+    }
+    // final user = User(email: email, password: password, name: name);
+    // await DbHelper.registerUser(user);
+    // Future.delayed(const Duration(seconds: 1)).then((value) {
+    //   isLoading = false;
+    //   ScaffoldMessenger.of(
+    //     context,
+    //   ).showSnackBar(const SnackBar(content: Text("Pendaftaran berhasil")));
+    // });
   }
+
 
   SafeArea buildLayer() {
     return SafeArea(
@@ -51,7 +103,7 @@ class _LoginAPIScreenState extends State<LoginAPIScreen> {
             children: [
               Text(
                 "Welcome Back",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 50, fontFamily: 'Allura'),
               ),
               height(12),
               Text(
@@ -100,50 +152,28 @@ class _LoginAPIScreenState extends State<LoginAPIScreen> {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    login();
+                    loginUser();
                   },
                   style: ElevatedButton.styleFrom(
-                    // backgroundColor: AppColor.blueButton,
+                  
+                    backgroundColor: const Color.fromARGB(255, 245, 200, 245),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
+                    
                   ),
                   child: Text(
                     "Login",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 207, 24, 24),
+                      color: const Color.fromARGB(255, 26, 25, 25),
                     ),
                   ),
                 ),
               ),
               height(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(right: 8),
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Or Sign In With",
-                    // style: TextStyle(fontSize: 12, color: AppColor.gray88),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.only(left: 8),
-
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-
+              
               height(16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/login_api_screen.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/post_api_screen.dart';
 
 void main() {
   initializeDateFormatting("id_ID");
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
 
-      home: LoginAPIScreen(),
+      home: PostApiScreen(),
     );
   }
 }
