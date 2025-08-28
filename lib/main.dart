@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:ppkd_b_3/tugas_tugas/pokemon/view.dart/get_pokemon_api.dart';
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/login_api_screen.dart';
 
 void main() {
   initializeDateFormatting("id_ID");
@@ -34,7 +34,8 @@ class MyApp extends StatelessWidget {
         fontFamily: "Gilroy",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Pokemon23Get(),
+
+      home: LoginAPIScreen(),
     );
   }
 }
