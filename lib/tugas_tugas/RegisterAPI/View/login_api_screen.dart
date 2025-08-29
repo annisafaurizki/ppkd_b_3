@@ -3,10 +3,10 @@ import 'package:ppkd_b_3/extension/navigation.dart';
 import 'package:ppkd_b_3/share_preferences/share_preferences.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/API/register.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/Model/register_model.dart';
-
+import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/home_api.dart';
 // import 'package:ppkd_b_3/share_preferences/share_preferences.dart';
 import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/post_api_screen.dart';
-import 'package:ppkd_b_3/tugas_tugas/RegisterAPI/View/user_screen.dart';
+import 'package:ppkd_b_3/tugas_tugas/login.dart';
 // import 'package:ppkd_b_3/tugas_tugas/bottomnav.dart';
 // import 'package:ppkd_b_3/tugas_tugas/tugas_11/db_helper.dart';
 
@@ -29,14 +29,14 @@ class _LoginAPIScreenState extends State<LoginAPIScreen> {
     return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
   }
 
-void loginUser() async {
+  void loginUser() async {
     setState(() {
       isLoading = true;
       errorMessage = null;
     });
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-    if (email.isEmpty || password.isEmpty ) {
+    if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Email, Password, dan Nama tidak boleh kosong"),
@@ -50,7 +50,6 @@ void loginUser() async {
       final result = await AuthenticationAPI.loginUser(
         email: email,
         password: password,
-       
       );
       setState(() {
         user = result;
@@ -61,14 +60,12 @@ void loginUser() async {
       PreferenceHandler.saveToken(user?.data?.token.toString() ?? "");
       print(user?.toJson());
 
-       Future.delayed(Duration(milliseconds: 1500), () {
+      Future.delayed(Duration(milliseconds: 1500), () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => UserScreen()), 
+          MaterialPageRoute(builder: (context) => HalamanUtamaDua()),
         );
       });
-
-      
     } catch (e) {
       print(e);
       setState(() {
@@ -90,7 +87,6 @@ void loginUser() async {
     //   ).showSnackBar(const SnackBar(content: Text("Pendaftaran berhasil")));
     // });
   }
-
 
   SafeArea buildLayer() {
     return SafeArea(
@@ -152,15 +148,14 @@ void loginUser() async {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
+                    Login();
                     loginUser();
                   },
                   style: ElevatedButton.styleFrom(
-                  
                     backgroundColor: const Color.fromARGB(255, 245, 200, 245),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    
                   ),
                   child: Text(
                     "Login",
@@ -172,8 +167,7 @@ void loginUser() async {
                   ),
                 ),
               ),
-              height(16),
-              
+
               height(16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

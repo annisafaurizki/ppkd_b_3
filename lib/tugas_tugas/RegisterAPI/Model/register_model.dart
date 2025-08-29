@@ -14,7 +14,7 @@ class RegisterUserModel {
   String? message;
   Data? data;
 
-  RegisterUserModel({this.message, this.data});
+  RegisterUserModel({required this.message, required this.data});
 
   factory RegisterUserModel.fromJson(Map<String, dynamic> json) =>
       RegisterUserModel(
